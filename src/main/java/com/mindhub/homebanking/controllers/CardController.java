@@ -47,10 +47,10 @@ public class CardController {
             if (cardNumber.equals(paymentNumber)
                 && card.getCvv() == paymentCard.getCvv()
                 && card.getThruDate().format(DateTimeFormatter.ofPattern("MMyy")).equals(paymentThruDate)) {
-                return new ResponseEntity<>(HttpStatus.OK);
+                return new ResponseEntity<>(HttpStatus.ACCEPTED);
             }
         }
-        return new ResponseEntity<>(HttpStatus.CONTINUE);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/clients/current/cards")
